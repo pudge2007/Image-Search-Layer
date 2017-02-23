@@ -18,7 +18,7 @@ router.get('/latest', function (req, res) {
 
 router.get('/:query', function(req, res, next) {
     var history = { "term": req.params.query, "when": new Date().toLocaleString() }
-    if (req.params.query !== 'favicon.ico' || req.params.query !== 'latest') {
+    if (req.params.query !== 'favicon.ico') {
         var obj = new History(history)
         obj.save(function(err, data){
             if (err) throw err;
